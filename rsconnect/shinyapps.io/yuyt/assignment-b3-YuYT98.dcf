@@ -5,9 +5,9 @@ account: yuyt
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7733242
-bundleId: 6555603
+bundleId: 6555625
 url: https://yuyt.shinyapps.io/assignment-b3-YuYT98/
-when: 1669417779.92689
-lastSyncTime: 1669417779.9269
+when: 1669418347.73666
+lastSyncTime: 1669418347.73667
 asMultiple: FALSE
 asStatic: FALSE

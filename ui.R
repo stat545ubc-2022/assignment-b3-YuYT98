@@ -18,7 +18,7 @@ ui <- fluidPage(
 
             p('Statistics summary tool User guide:'),
             p('1. Download our ',
-              a('template', href = 'xxxxx', style = "color:#E67E22", target="_blank"),
+              a('template', href = 'https://github.com/stat545ubc-2022/assignment-b3-YuYT98/raw/main/data_template/data_template.xlsx', style = "color:#E67E22", target="_blank"),
               'and put your subject id or name under the first column, the original data under the second column and predicted data under the third column',
               br(),
               br(),
