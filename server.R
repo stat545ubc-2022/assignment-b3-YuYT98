@@ -28,6 +28,42 @@ shinyServer(function(input, output) {
         read_xlsx(file$datapath)
     })
 
+    # summarize uploaded file
+    count_step <- eventReactive(input$confirm, {
+        file <- input$file1
+        data = file$datapath
+        data = read_excel(data)
+        data = data.frame(data)
+        num_of_obj = nrow(data)
+        paste("Your uploaded file has ", num_of_obj, "objects.")
+    })
+
+
+    output$text <- renderText({
+        count_step()
+    })
+
+    # plot original data and predicted data from uploaded file
+    plot_step <- eventReactive(input$confirm, {
+        file <- input$file1
+        data = file$datapath
+        data = read_excel(data)
+        data = data.frame(data)
+        plot(data[,2],data[,3],
+             xlab="original data",
+             ylab="predicted data")
+        plot(data[,2],data[,3],
+             xlab="original data",
+             ylab="predicted data",col="blue")
+        lines(data[,2],data[,2], col="red")
+    })
+
+
+    output$cor_plot <- renderPlot({
+        plot_step()
+    })
+
+
     # computation step
     cal <- eventReactive(input$confirm, {
         file <- input$file1
@@ -35,7 +71,6 @@ shinyServer(function(input, output) {
         source('computation_source.R')
         computations(data)
         "Computations done. Please download your results."
-
     })
 
     output$caption <- renderText({
